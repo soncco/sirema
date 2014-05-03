@@ -1,0 +1,27 @@
+<template name="regionList">
+  <div class="page-header">
+    <h2>Relación de regiones
+      <span class="small pull-right"><a href="{{pathFor 'regionNew'}}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i> Agregar una región</a></span>
+    </h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each regiones}}
+      <tr>
+        <td><a href="{{pathFor 'regionEdit'}}">{{codigo}}</a></td>
+        <td>{{nombre}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="2">Aun no existen regiones. <a href="{{pathFor 'regionNew'}}">Crear una región</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

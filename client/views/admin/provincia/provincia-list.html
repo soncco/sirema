@@ -1,0 +1,29 @@
+<template name="provinciaList">
+  <div class="page-header">
+    <h2>Relación de Provincias
+      <span class="small pull-right"><a href="{{pathFor 'provinciaNew'}}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i> Agregar una provincia</a></span>
+    </h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Región</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each provincias}}
+      <tr>
+        <td><a href="{{pathFor 'provinciaEdit'}}">{{nombre}}</a></td>
+        <td>{{region.nombre}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="2">Aun no existen provincias. <a href="{{pathFor 'provinciaNew'}}">Crear una provincia</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  
+  {{hola}}
+</template>

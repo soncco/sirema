@@ -1,0 +1,13 @@
+{
+  "packages": {
+    "bootstrap-3": {},
+    "iron-router": {},
+    "spin": {},
+    "font-awesome": {},
+    "flash-messages": {},
+    "iron-router-progress": {},
+    "fast-render": {},
+    "jqGrid": {},
+    "autocomplete": {}
+  }
+}

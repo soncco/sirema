@@ -1,0 +1,29 @@
+<template name="distritoList">
+  <div class="page-header">
+    <h2>Relación de Distritos
+      <span class="small pull-right"><a href="{{pathFor 'distritoNew'}}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i> Agregar un distrito</a></span>
+    </h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Provincia</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each distritos}}
+      <tr>
+        <td><a href="{{pathFor 'distritoEdit'}}">{{nombre}}</a></td>
+        <td>{{provincia.nombre}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="2">Aun no existen distritos. <a href="{{pathFor 'distritoNew'}}">Crear un distrito</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  
+  {{hola}}
+</template>

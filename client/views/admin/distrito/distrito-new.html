@@ -1,0 +1,21 @@
+<template name="distritoNew">
+  <div class="page-header">
+    <h2>Crear nuevo Distrito
+      <span class="small pull-right"><a href="{{pathFor 'distritoList'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todos los distritos</a></span>
+    </h2>
+  </div>
+  <form class="form form-inline" role="form">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Nombre del distrito" required id="nombre" autofocus>
+    </div>
+    <div class="form-group">
+      <select name="provincia" id="provincia" class="form-control" required>
+        <option value="">Pertenece a</option>
+        {{#each provincias}}
+        <option value="{{_id}}">{{region.nombre}}: {{nombre}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <button class="btn btn-primary" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+  </form>
+</template>
