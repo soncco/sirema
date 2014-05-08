@@ -8,6 +8,7 @@
     "iron-router-progress": {},
     "fast-render": {},
     "jqGrid": {},
-    "autocomplete": {}
+    "autocomplete": {},
+    "accounts-ui-bootstrap-3": {}
   }
 }

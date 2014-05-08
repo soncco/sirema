@@ -16,3 +16,6 @@ fast-render
 jqGrid
 autocomplete
 coffeescript
+accounts-base
+accounts-password
+accounts-ui-bootstrap-3

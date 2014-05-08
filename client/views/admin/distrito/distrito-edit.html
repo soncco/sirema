@@ -6,9 +6,11 @@
   </div>
   <form class="form form-inline" role="form">
     <div class="form-group">
+      <label for="nombre">Nombre:</label>
       <input type="text" class="form-control" placeholder="Nombre del distrito" required id="nombre" autofocus value="{{nombre}}">
     </div>
     <div class="form-group">
+      <label for="provincia">Pertenece a:</label>
       <select name="provincia" id="provincia" class="form-control" required>
         <option value="">Pertenece a</option>
         {{#each provincias}}

@@ -10,7 +10,8 @@
       "iron-router-progress": {},
       "fast-render": {},
       "jqGrid": {},
-      "autocomplete": {}
+      "autocomplete": {},
+      "accounts-ui-bootstrap-3": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -35,8 +36,8 @@
       },
       "flash-messages": {
         "git": "https://github.com/camilosw/flash-messages.git",
-        "tag": "v0.2.3",
-        "commit": "fdebd773753682e168af47a1d2ffc1da47e1ce49"
+        "tag": "v0.2.4",
+        "commit": "8e7d09e7b7bd61ab10aaad01371dcecef2e9f797"
       },
       "iron-router-progress": {
         "git": "https://github.com/Multiply/iron-router-progress.git",
@@ -45,8 +46,8 @@
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.2.4",
-        "commit": "160a64bd61792f53a7c8848c5e979a953be13564"
+        "tag": "v0.2.5",
+        "commit": "93e2fb334e55fbe9b5ebb2a2e65964018658f43e"
       },
       "jqGrid": {
         "git": "https://github.com/soncco/meteor-jqGrid.git",
@@ -55,8 +56,13 @@
       },
       "autocomplete": {
         "git": "https://github.com/mizzao/meteor-autocomplete.git",
-        "tag": "v0.4.1",
-        "commit": "cb643055b16dce1920afb83c0a7bc79e83d16f19"
+        "tag": "v0.4.3",
+        "commit": "a70bd9b6b9f5576a0fa96a7a3440b1a7d83e4a32"
+      },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.3.0-1",
+        "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
@@ -68,10 +74,10 @@
         "tag": "v1.9.2",
         "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
       },
-      "jquery-migrate": {
-        "git": "https://github.com/canadaduane/meteor-jquery-migrate.git",
-        "tag": "v2.0.0",
-        "commit": "636819c9de59f66410e148867b229869bb045cea"
+      "caret-position": {
+        "git": "https://github.com/StockBase/meteor-caret-position.git",
+        "tag": "v2.1.0-3",
+        "commit": "6028cf980f62cbf72cb2ea527091a3a31f87b8a7"
       }
     }
   }

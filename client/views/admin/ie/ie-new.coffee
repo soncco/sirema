@@ -1,12 +1,19 @@
 Template.ieNew.events
   'submit .form': (e) ->
+
+    distritoId = $(e.target).find('#distritoId').val()
+
+    if distritoId == ''
+      FlashMessages.sendError 'Revisa el campo "Pertenece a"'
+      $(e.target).find('#distritoId').focus()
+      return false
+
     e.preventDefault()
     nombre = $(e.target).find('#nombre').val()
     modular = $(e.target).find('#modular').val()
     codigo = $(e.target).find('#codigo').val()
     ebr = $(e.target).find('#ebr').val()
     direccion = $(e.target).find('#direccion').val()
-    distritoId = $(e.target).find('#distritoId').val()
     nivel = $(e.target).find('#nivel').val()
     genero = $(e.target).find('#genero').val()
     area = $(e.target).find('#area').val()
@@ -27,6 +34,18 @@ Template.ieNew.events
       'telefono': telefono
       'email': email
       'url': url
+
+    console.log(ie)
+
+    _id = Ies.insert(ie)
+
+    if(_id)
+      console.log(_id)
+      FlashMessages.sendSuccess 'Se creó la Institución Educativa'
+      Router.go 'ieList',
+        _id: _id
+    else
+      FlashMessages.sendError 'Hubo un problema al crear la Institución Educativa'
 
 Template.ieNew.settings = ->
   position: 'bottom'

@@ -1,7 +1,7 @@
 <template name="ieNew">
   <div class="page-header">
     <h2>Crear nueva Institución Educativa
-      <span class="small pull-right"><a href="{{pathFor 'home'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todas las Instituciones Educativas</a></span>
+      <span class="small pull-right"><a href="{{pathFor 'ieList'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todas las Instituciones Educativas</a></span>
     </h2>
   </div>
   <form class="form" role="form">
@@ -22,7 +22,7 @@
           <select name="ebr" id="ebr" class="form-control" required>
             <option value="">EBR</option>
             <option value="hispano">Hispano</option>
-            <option value="EIB">EIB</option>
+            <option value="eib">EIB</option>
           </select>
         </div>
       </div>
@@ -45,7 +45,9 @@
         <div class="col-sm-4">
           <select name="nivel" id="nivel" class="form-control" required>
             <option value="">Nivel/Modalidad</option>
-            <option value="inicial">Inicial/Jardín</option>
+            <option value="inicial_cuna">Inicial - Cuna</option>
+            <option value="inicial_cuna_jardin">Inicial - Cuna - Jardín</option>
+            <option value="inicial_jardin">Inicial - Jardín</option>
             <option value="primaria">Primaria</option>
             <option value="secundaria">Secundaria</option>
           </select>

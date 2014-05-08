@@ -5,16 +5,20 @@ Meteor.publish 'region',  (id) ->
   id and Regiones.find id
 
 Meteor.publish 'provincias', ->
-  return Provincias.find {}
+  Provincias.find {}
 
 Meteor.publish 'provincia', (id) ->
-  return id && Provincias.find id;
+  id && Provincias.find id
 
 Meteor.publish 'distritos', ->
-  return Distritos.find {}
-
-Meteor.publish 'distritometa', ->
-  return DistritoMeta.find {}
+  Distritos.find {}
 
 Meteor.publish 'distrito', (id) ->
-  return id && Distritos.find id;
+  id && Distritos.find id
+
+Meteor.publish 'ies', ->
+  Ies.find {}
+
+Meteor.publish 'currentUser', ->
+  user = Meteor.users.find {_id: this.userId}
+  user

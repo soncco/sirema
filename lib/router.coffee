@@ -1,6 +1,24 @@
 Router.configure
-  layoutTemplate: 'layout',
+  layoutTemplate: 'layout'
   loadingTemplate: 'loading'
+  waitOn: ->
+    return Meteor.subscribe 'currentUser'
+
+filters =
+  isAdmin: (pause)->
+    #if @ready()
+    #  return
+    if (!isAdmin(Meteor.user()))
+      @render 'forbidden'
+      pause()
+    return
+
+  isLoggedIn: (pause)->
+    if !(Meteor.loggingIn() or Meteor.user())
+      @render 'forbidden'
+      pause()
+    return
+
 
 Router.map ->
   @route 'home', 
@@ -71,6 +89,7 @@ Router.map ->
 
     fastRender: true
 
+  # IEs.
   @route 'ieNew',
     path: '/ie-nuevo'
     waitOn: ->
@@ -78,5 +97,17 @@ Router.map ->
 
     fastRender: true
 
+  @route 'ieList',
+    path: '/ies'
+    waitOn: ->
+      Meteor.subscribe 'ies'
+    fastRender: true
+
+  @route 'forbidden'
+
 Router.onBeforeAction 'loading'
 Router.onBeforeAction -> clearErrors()
+Router.onBeforeAction filters.isAdmin,
+  only: ['regionNew']
+Router.onBeforeAction filters.isLoggedIn,
+  only: ['regionNew']
