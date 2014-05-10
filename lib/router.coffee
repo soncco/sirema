@@ -89,7 +89,7 @@ Router.map ->
 
     fastRender: true
 
-  # IEs.
+  # Ies.
   @route 'ieNew',
     path: '/ie-nuevo'
     waitOn: ->
@@ -101,6 +101,14 @@ Router.map ->
     path: '/ies'
     waitOn: ->
       Meteor.subscribe 'ies'
+    fastRender: true
+
+  @route 'ieEdit',
+    path: '/ie/:_id'
+    waitOn: ->
+      [ Meteor.subscribe('ie', @params._id), Meteor.subscribe('distritos') ]
+    data: ->
+      Ies.findOne '_id': @params._id
     fastRender: true
 
   @route 'forbidden'

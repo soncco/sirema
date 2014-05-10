@@ -9,6 +9,6 @@ Accounts.onCreateUser (options, user) ->
     user.profile.name = user.username
 
   if !Meteor.users.find().count()
-    user.roles.push 'admin', 'specialist'
+    user.roles.push 'admin', 'boss', 'specialist'
 
   user

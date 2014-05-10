@@ -1,7 +1,7 @@
 Template.regionEdit.events 'submit .form': (e) ->
   e.preventDefault()
-  nombre = $(e.target).find('#nombre').val()
-  codigo = $(e.target).find('#codigo').val()
+  nombre = $('#nombre').val()
+  codigo = $('#codigo').val()
   
   region =
     _id: @_id

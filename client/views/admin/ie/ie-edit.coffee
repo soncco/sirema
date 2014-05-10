@@ -1,4 +1,4 @@
-Template.ieNew.events
+Template.ieEdit.events
   'submit .form': (e) ->
 
     distritoId = $('#distritoId').val()
@@ -49,20 +49,20 @@ Template.ieNew.events
     else
       FlashMessages.sendError 'Hubo un problema al crear la Institución Educativa'
 
-Template.ieNew.settings = ->
+Template.ieEdit.settings = ->
   position: 'bottom'
   limit: 5
   rules: [
     collection: Distritos
     field: 'nombre'
     matchAll: true
-    template: Template.dataPiece
+    template: Template.dataPieceEdit
     callback: ->
     onSelected: ->
       console.log(this)
    ]
 
-Template.dataPiece.helpers
+Template.dataPieceEdit.helpers
   parents: ->
     Meteor.subscribe 'provincia', @provinciaId
     p = Provincias.findOne 
@@ -76,7 +76,7 @@ Template.dataPiece.helpers
 
     'provincia': p, 'region': r
 
-Template.dataPiece.events
+Template.dataPieceEdit.events
   'click span': (e) ->
     $distritoId = $(e.delegateTarget.ownerDocument).find('#distritoId')
     id = $(e.target).data('id')

@@ -1,6 +1,6 @@
 erbs = 
   hispano: 'Hispano'
-  eib: 'Hispano'
+  eib: 'EIB'
 
 niveles = 
   inicial_cuna: 'Inicial - Cuna'
@@ -27,6 +27,9 @@ theDistrito = (cellValue, options, rowData) ->
   Distritos.findOne
     _id: rowData.distritoId
 
+theActions = (cellValue, options, rowData) ->
+  str = '<a href="/ie/' + rowData._id + '" title="Ver o editar"><span class="text-primary fa fa-edit fa-lg"></span></a>'
+  str
 
 Template.ieList.created = ->
   handle = Ies.find({}).observe
@@ -42,7 +45,7 @@ Template.ieList.rendered = ->
     datatype: 'local',
     data: Ies.find({}).fetch(),
     colNames: ['Nombre', 'Código Modular', 'Código Institución', 'EBRRaW', 'DistritoRaw', 'NivelRaw', 'GeneroRaw', 'AreaRaw',
-    'EBR', 'Localizado en', 'Nivel', 'Genero', 'Área'],
+    'EBR', 'Localizado en', 'Nivel', 'Genero', 'Área', 'Acciones'],
     colModel: [
       {name: 'nombre', index: 'nombre', searchoptions: {sopt: ['cn','nc','eq','bw','bn','ew','en']}},
       {name: 'modular', index: 'modular', searchoptions: {sopt: ['cn','nc','eq','bw','bn','ew','en']}},
@@ -53,11 +56,12 @@ Template.ieList.rendered = ->
       {name: 'genero', index: 'genero', hidden: true, search: false},
       {name: 'area', index: 'area', hidden: true, search: false},
 
-      {name: 'ebrP', index: 'ebrP', searchoptions: {sopt: ['cn','nc','eq','bw','bn','ew','en']}, formatter: theEbr},
-      {name: 'distritoIdP', index: 'distritoIdP', searchoptions: {sopt: ['cn','nc','eq','bw','bn','ew','en']}, formatter: theDistrito},
-      {name: 'nivelP', index: 'nivelP', searchoptions: {sopt: ['cn','nc','eq','bw','bn','ew','en']}, formatter: theNivel},
-      {name: 'generoP', index: 'generoP', searchoptions: {sopt: ['cn','nc','eq','bw','bn','ew','en']}, formatter: theGenero},
-      {name: 'areaP', index: 'areaP', searchoptions: {sopt: ['cn','nc','eq','bw','bn','ew','en']}, formatter: theArea}
+      {name: 'ebrP', index: 'ebrP', formatter: theEbr, stype: 'select',searchoptions: {value: _.extend({'': 'Todos'},erbs)}},
+      {name: 'distritoIdP', index: 'distritoIdP', formatter: theDistrito, stype: 'select', searchoptions: {value: _.extend({'': 'Todos'}, '')}},
+      {name: 'nivelP', index: 'nivelP', formatter: theNivel, stype: 'select', searchoptions: {value: _.extend({'': 'Todos'}, niveles)}},
+      {name: 'generoP', index: 'generoP', formatter: theGenero, stype: 'select', searchoptions: {value: _.extend({'': 'Todos'}, generos)}},
+      {name: 'areaP', index: 'areaP', formatter: theArea, stype: 'select', searchoptions: {value: _.extend({'': 'Todos'}, areas)}}
+      {name: 'actions', index: 'actions', formatter: theActions, search: false, sortable: false, title: false},
     ],
     rowNum: 10
     rowList: [10, 20, 30, 40, 50],

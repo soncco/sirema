@@ -1,7 +1,7 @@
 Template.distritoEdit.events "submit .form": (e) ->
   e.preventDefault()
-  nombre = $(e.target).find("#nombre").val()
-  provincia = $(e.target).find("#provincia").val()
+  nombre = $("#nombre").val()
+  provincia = $("#provincia").val()
   distrito =
     _id: @_id
     nombre: nombre

@@ -1,0 +1,97 @@
+<template name="ieEdit">
+  <div class="page-header">
+    <h2>Editar Institución Educativa
+      <span class="small pull-right"><a href="{{pathFor 'ieList'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todas las Instituciones Educativas</a></span>
+    </h2>
+  </div>
+  <form class="form" role="form">
+
+    <div class="form-group">
+      <input type="text" class="form-control" required id="nombre" autofocus placeholder="Nombre de la IE" value="{{nombre}}">
+    </div>
+
+    <div class="form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-4">
+          <input type="text" class="form-control" required id="modular" placeholder="Código Modular" value="{{modular}}">
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" required id="codigo" placeholder="Código de Local" value="{{codigo}}">
+        </div>
+        <div class="col-sm-4">
+          <select name="ebr" id="ebr" class="form-control" required>
+            <option value="">EBR</option>
+            <option value="hispano">Hispano</option>
+            <option value="eib">EIB</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-6">
+          <input type="text" class="form-control" required id="direccion" placeholder="Dirección" value="{{direccion}}">
+        </div>
+        <div class="col-sm-6">
+          {{> inputAutocomplete settings=settings id="distrito" class="form-control" placeholder="Pertenece a"}}
+          <input type="hidden" id="distritoId" value="{{distritoId}}">
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-4">
+          <select name="nivel" id="nivel" class="form-control" required>
+            <option value="">Nivel/Modalidad</option>
+            <option value="inicial_cuna">Inicial - Cuna</option>
+            <option value="inicial_cuna_jardin">Inicial - Cuna - Jardín</option>
+            <option value="inicial_jardin">Inicial - Jardín</option>
+            <option value="primaria">Primaria</option>
+            <option value="secundaria">Secundaria</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select name="genero" id="genero" class="form-control" required>
+            <option value="">Género</option>
+            <option value="mixto">Mixto</option>
+            <option value="mujeres">Mujeres</option>
+            <option value="varones">Varones</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select name="area" id="area" class="form-control" required>
+            <option value="">Área</option>
+            <option value="urbana">Urbana</option>
+            <option value="rural">Rural</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" required id="director" placeholder="Director" value="{{director}}">
+    </div>
+
+    <div class="form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-4">
+          <input type="tel" class="form-control" id="telefono" placeholder="Teléfono" value="{{telefono}}">
+        </div>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" value="{{email}}">
+        </div>
+        <div class="col-sm-4">
+          <input type="url" class="form-control" id="url" placeholder="Página Web" value="{{url}}">
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+  </form>
+</template>
+
+<template name="dataPieceEdit">
+  <span data-id="{{_id}}">{{parents.region.nombre}} -> {{parents.provincia.nombre}} ->{{nombre}}</span>
+</template>

@@ -19,6 +19,9 @@ Meteor.publish 'distrito', (id) ->
 Meteor.publish 'ies', ->
   Ies.find {}
 
+Meteor.publish 'ie', (id) ->
+  id && Ies.find id
+
 Meteor.publish 'currentUser', ->
   user = Meteor.users.find {_id: this.userId}
   user
