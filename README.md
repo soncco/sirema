@@ -79,7 +79,7 @@
     urbana: 'Urbana',
     rural: 'Rural'
   };
-  ```javascript
+  ```
 
 
   ```javascript
@@ -105,4 +105,4 @@
     {'nombre': 'Ciencias','modular': '56546546','codigo': '9879879','ebr': 'hispano','direccion': 'Av de la Cultura','distritoId': 'wanchaqid','nivel': 'inicial_jardin','genero': 'varones','area': 'urbana','director': 'Chespirito','telefono': '','email': '','url': ''},
     // ....
   ]
-  
+  ```
