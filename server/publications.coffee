@@ -22,6 +22,12 @@ Meteor.publish 'ies', ->
 Meteor.publish 'ie', (id) ->
   id && Ies.find id
 
+Meteor.publish 'docentes', ->
+  Docentes.find {}
+
+Meteor.publish 'docente', (id) ->
+  id && Docentes.find id
+
 Meteor.publish 'currentUser', ->
   user = Meteor.users.find {_id: this.userId}
   user

@@ -1,5 +1,11 @@
 @Provincias = new Meteor.Collection 'provincias'
 
+Provincias.allow
+  insert: isAdminById
+  update: isAdminById
+  remove: isAdminById
+
+
 Meteor.methods
   saveProvincia: (attrs) ->
     provinciaConMismoNombre = Provincias.findOne(nombre:

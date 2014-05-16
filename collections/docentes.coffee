@@ -1,6 +1,6 @@
-@Ies = new Meteor.Collection 'ies'
+@Docentes = new Meteor.Collection 'docentes'
 
-Ies.allow
+Docentes.allow
   insert: isAdminById
   update: isAdminById
   remove: isAdminById

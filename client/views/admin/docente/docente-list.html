@@ -1,0 +1,29 @@
+<template name="docenteList">
+  <div class="page-header">
+    <h2>Relación de Docentes
+      <span class="small pull-right"><a href="{{pathFor 'docenteNew'}}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i> Agregar Docente</a></span>
+    </h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nombres</th>
+        <th>DNI</th>
+        <th>Institución Educativa</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each docentes}}
+      <tr>
+        <td><a href="{{pathFor 'docenteEdit'}}">{{nombres}}</a></td>
+        <td>{{dni}}</td>
+        <td>{{ie.nombre}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="3">Aun no existen Docentes. <a href="{{pathFor 'docenteNew'}}">Crear un Docente</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

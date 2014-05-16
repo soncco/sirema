@@ -111,11 +111,43 @@ Router.map ->
       Ies.findOne '_id': @params._id
     fastRender: true
 
+  # Docentes.
+  @route 'docenteNew',
+    path: '/docente-nuevo'
+    waitOn: ->
+      Meteor.subscribe 'ies'
+    fastRender: true
+
+  @route 'docenteList',
+    path: '/docentes'
+    waitOn: ->
+      Meteor.subscribe 'docentes'
+    fastRender: true
+
+  @route 'docenteEdit',
+    path: '/docente/:_id'
+    waitOn: ->
+      [ Meteor.subscribe('docente', @params._id), Meteor.subscribe('ies')]
+    data: ->
+      Docentes.findOne '_id': @params._id
+
   @route 'forbidden'
 
 Router.onBeforeAction 'loading'
 Router.onBeforeAction -> clearErrors()
 Router.onBeforeAction filters.isAdmin,
-  only: ['regionNew']
+  only: [
+    'regionNew', 'regionEdit', 'regionList',
+    'provinciaNew', 'provinciaEdit', 'provinciaList',
+    'distritoNew', 'distritoEdit', 'distritoList',
+    'ieNew', 'ieEdit', 'ieList',
+    'docenteNew', 'docenteEdit', 'docenteList',
+  ]
 Router.onBeforeAction filters.isLoggedIn,
-  only: ['regionNew']
+  only: [
+    'regionNew', 'regionEdit', 'regionList',
+    'provinciaNew', 'provinciaEdit', 'provinciaList',
+    'distritoNew', 'distritoEdit', 'distritoList',
+    'ieNew', 'ieEdit', 'ieList',
+    'docenteNew', 'docenteEdit', 'docenteList',
+  ]

@@ -1,5 +1,11 @@
 @Regiones = new Meteor.Collection 'regiones'
 
+Regiones.allow
+  insert: isAdminById
+  update: isAdminById
+  remove: isAdminById
+
+
 Meteor.methods
   saveRegion: (attrs) ->
     regionConMismoNombre = Regiones.findOne(nombre:

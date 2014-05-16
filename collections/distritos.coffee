@@ -1,5 +1,11 @@
 @Distritos = new Meteor.Collection 'distritos'
 
+Distritos.allow
+  insert: isAdminById
+  update: isAdminById
+  remove: isAdminById
+
+
 Meteor.methods
   saveDistrito: (attrs) ->
     distritoConMismoNombre = Distritos.findOne(nombre:
