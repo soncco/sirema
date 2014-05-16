@@ -37,47 +37,30 @@ Template.ieEdit.events
       'email': email
       'url': url
 
-    console.log(ie)
+    Ies.update @_id,
+      $set: ie
 
-    _id = Ies.insert(ie)
+    FlashMessages.sendSuccess 'Se editó la Institución Educativa'
+    Router.go 'ieList',
+      _id: @_id
 
-    if(_id)
-      console.log(_id)
-      FlashMessages.sendSuccess 'Se creó la Institución Educativa'
-      Router.go 'ieList',
-        _id: _id
-    else
-      FlashMessages.sendError 'Hubo un problema al crear la Institución Educativa'
+    return
+
+Template.ieEdit.helpers
+  ebrs: -> ebrs
+  niveles: -> niveles
+  generos: -> generos
+  areas: -> areas
+  distrito: ->
+    Meteor.subscribe 'distrito', @distritoId
+    Distritos.findOne '_id': @distritoId
 
 Template.ieEdit.settings = ->
   position: 'bottom'
-  limit: 5
+  limit: 15
   rules: [
     collection: Distritos
     field: 'nombre'
     matchAll: true
-    template: Template.dataPieceEdit
-    callback: ->
-    onSelected: ->
-      console.log(this)
-   ]
-
-Template.dataPieceEdit.helpers
-  parents: ->
-    Meteor.subscribe 'provincia', @provinciaId
-    p = Provincias.findOne 
-      '_id': @provinciaId
-
-    r = {}
-    if p
-      Meteor.subscribe 'region', p.regionId
-      r = Regiones.findOne 
-        '_id': p.regionId
-
-    'provincia': p, 'region': r
-
-Template.dataPieceEdit.events
-  'click span': (e) ->
-    $distritoId = $(e.delegateTarget.ownerDocument).find('#distritoId')
-    id = $(e.target).data('id')
-    $distritoId.val(id)
+    template: Template.dataPiece
+  ]

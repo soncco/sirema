@@ -4,6 +4,34 @@
       <span class="small pull-right"><a href="{{pathFor 'ieNew'}}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i> Agregar una Institución Educativa</a></span>
     </h2>
   </div>
-  <table id="grid" class="table table-bordered table-striped"></table>
-  <div id="pager"></div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Código Modular</th>
+        <th>EBR</th>
+        <th>Nivel</th>
+        <th>Género</th>
+        <th>Área</th>
+        <th>Lugar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each ies}}
+      <tr>
+        <td><a href="{{pathFor 'ieEdit'}}">{{nombre}}</a></td>
+        <td>{{modular}}</td>
+        <td>{{ebr}}</td>
+        <td>{{nivel}}</td>
+        <td>{{genero}}</td>
+        <td>{{area}}</td>
+        <td>{{lugar.nombre}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="7">Aun no existen Instituciones Educativas. <a href="{{pathFor 'ieNew'}}">Crear una Institución Educativa</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>

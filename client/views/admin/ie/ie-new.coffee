@@ -37,30 +37,30 @@ Template.ieNew.events
       'email': email
       'url': url
 
-    console.log(ie)
-
     _id = Ies.insert(ie)
 
     if(_id)
-      console.log(_id)
       FlashMessages.sendSuccess 'Se creó la Institución Educativa'
       Router.go 'ieList',
         _id: _id
     else
       FlashMessages.sendError 'Hubo un problema al crear la Institución Educativa'
 
+Template.ieNew.helpers
+  ebrs: -> ebrs
+  niveles: -> niveles
+  generos: -> generos
+  areas: -> areas
+
 Template.ieNew.settings = ->
   position: 'bottom'
-  limit: 5
+  limit: 15
   rules: [
     collection: Distritos
     field: 'nombre'
     matchAll: true
     template: Template.dataPiece
-    callback: ->
-    onSelected: ->
-      console.log(this)
-   ]
+  ]
 
 Template.dataPiece.helpers
   parents: ->
@@ -78,6 +78,6 @@ Template.dataPiece.helpers
 
 Template.dataPiece.events
   'click span': (e) ->
-    $distritoId = $(e.delegateTarget.ownerDocument).find('#distritoId')
+    $distritoId = $('#distritoId')
     id = $(e.target).data('id')
     $distritoId.val(id)
