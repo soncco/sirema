@@ -6,8 +6,6 @@ Router.configure
 
 filters =
   isAdmin: (pause)->
-    #if @ready()
-    #  return
     if (!isAdmin(Meteor.user()))
       @render 'forbidden'
       pause()
@@ -131,7 +129,12 @@ Router.map ->
     data: ->
       Docentes.findOne '_id': @params._id
 
-  @route 'forbidden'
+  @route 'forbidden',
+    where: 'server',
+    action: ->
+      @response.statusCode = 403
+
+  @route 'error404'
 
 Router.onBeforeAction 'loading'
 Router.onBeforeAction -> clearErrors()
