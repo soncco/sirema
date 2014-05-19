@@ -129,10 +129,66 @@ Router.map ->
     data: ->
       Docentes.findOne '_id': @params._id
 
+  # Aspectos
+  @route 'dominioNew',
+    path: 'dominio-nuevo'
+    loading: false
+
+  @route 'dominioList',
+    path: 'dominios'
+    waitOn: ->
+      Meteor.subscribe 'dominios'
+    fastRender: true
+
+  @route 'dominioEdit',
+    path: '/dominio/:_id'
+    waitOn: ->
+      Meteor.subscribe('dominio', @params._id)
+    data: ->
+      Dominios.findOne '_id': @params._id
+
+
+  @route 'aspectoNew',
+    path: 'aspecto-nuevo'
+    waitOn: ->
+      Meteor.subscribe 'dominios'
+    fastRender: true
+
+  @route 'aspectoList',
+    path: '/aspectos'
+    waitOn: ->
+      Meteor.subscribe 'aspectos'
+    fastRender: true
+
+  @route 'aspectoEdit',
+    path: '/aspecto/:_id'
+    waitOn: ->
+      [ Meteor.subscribe('aspecto', @params._id), Meteor.subscribe('dominios')]
+    data: ->
+      Aspectos.findOne '_id': @params._id
+
+
+  @route 'indicadorNew',
+    path: 'indicador-nuevo'
+    waitOn: ->
+      Meteor.subscribe 'aspectos'
+    fastRender: true
+
+  @route 'indicadorList',
+    path: '/indicadores'
+    waitOn: ->
+      Meteor.subscribe 'indicadores'
+    fastRender: true
+
+  @route 'indicadorEdit',
+    path: '/indicador/:_id'
+    waitOn: ->
+      [ Meteor.subscribe('indicador', @params._id), Meteor.subscribe('aspectos')]
+    data: ->
+      Indicadores.findOne '_id': @params._id
+
+
   @route 'forbidden',
-    where: 'server',
-    action: ->
-      @response.statusCode = 403
 
   @route 'error404'
 
@@ -144,7 +200,9 @@ Router.onBeforeAction filters.isAdmin,
     'provinciaNew', 'provinciaEdit', 'provinciaList',
     'distritoNew', 'distritoEdit', 'distritoList',
     'ieNew', 'ieEdit', 'ieList',
-    'docenteNew', 'docenteEdit', 'docenteList',
+    'dominioNew',
+    'aspectoNew',
+    'indicadorNew',
   ]
 Router.onBeforeAction filters.isLoggedIn,
   only: [
@@ -152,5 +210,7 @@ Router.onBeforeAction filters.isLoggedIn,
     'provinciaNew', 'provinciaEdit', 'provinciaList',
     'distritoNew', 'distritoEdit', 'distritoList',
     'ieNew', 'ieEdit', 'ieList',
-    'docenteNew', 'docenteEdit', 'docenteList',
+    'dominioNew',
+    'aspectoNew',
+    'indicadorNew',
   ]

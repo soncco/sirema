@@ -1,0 +1,84 @@
+<template name="indicadorNew">
+  <div class="page-header">
+    <h2>Crear nuevo Indicador
+      <span class="small pull-right"><a href="{{pathFor 'indicadorList'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todos los Indicadores</a></span>
+    </h2>
+  </div>
+  <form class="form" role="form">
+    
+    <div class="form-group">
+      <select id="aspectoId" name="aspectoId" class="form-control" required>
+        <option value="">Aspecto</option>
+        {{#each aspectos}}
+        <option value="{{_id}}">{{nombre}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" id="numero" min="1" step="1" placeholder="Número" name="numero" required>
+    </div>
+    <div class="form-group">
+      <textarea name="descripcion" id="descripcion" class="form-control" placeholder="Descripción del Indicador" required></textarea>
+    </div>
+    <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+  </form>
+</template>
+
+<template name="indicadorEdit">
+  <div class="page-header">
+    <h2>Editar Indicador
+      <span class="small pull-right"><a href="{{pathFor 'indicadorList'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todos los Indicadores</a></span>
+    </h2>
+  </div>
+  <form class="form" role="form">
+    
+    <div class="form-group">
+      <label for="aspectoId">Aspecto:</label>
+      <select id="aspectoId" name="aspectoId" class="form-control" required>
+        <option value="">Aspecto</option>
+        {{#each aspectos}}
+        <option value="{{_id}}" {{isSelected ../aspectoId}}>{{nombre}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="numero">Número:</label>
+      <input type="number" class="form-control" id="numero" min="1" step="1" placeholder="Número" name="numero" required value="{{numero}}">
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Descripción del Indicador:</label>
+      <textarea name="descripcion" id="descripcion" class="form-control" placeholder="Descripción del Indicador" required>{{descripcion}}</textarea>
+    </div>
+    <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+  </form>
+</template>
+
+<template name="indicadorList">
+  <div class="page-header">
+    <h2>Relación de Indicadores
+      <span class="small pull-right"><a href="{{pathFor 'indicadorNew'}}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i> Agregar un Indicador</a></span>
+    </h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Descripción</th>
+        <th>Aspecto</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each indicadores}}
+      <tr>
+        <td><a href="{{pathFor 'indicadorEdit'}}" class="btn btn-info btn-sm">{{numero}}</a></td>
+        <td>{{descripcion}}</td>
+        <td>{{aspecto.nombre}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="3">Aun no existen Indicadores. <a href="{{pathFor 'indicadorNew'}}">Crear un Indicador</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

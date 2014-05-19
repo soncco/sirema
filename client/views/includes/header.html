@@ -16,7 +16,6 @@
         
         <div class="collapse navbar-collapse" id="main-navbar">
           <ul class="nav navbar-nav">
-            <li><a href="{{pathFor 'home'}}">Inicio</a></li>
             {{#if isAdmin}}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Listas <b class="caret"></b></a>
@@ -27,6 +26,10 @@
                 <li class="divider"></li>
                 <li><a href="{{pathFor 'ieList'}}">Instituciones Educativas</a></li>
                 <li><a href="{{pathFor 'docenteList'}}">Docentes</a></li>
+                <li class="divider"></li>
+                <li><a href="{{pathFor 'dominioList'}}">Dominios</a></li>
+                <li><a href="{{pathFor 'aspectoList'}}">Aspectos</a></li>
+                <li><a href="{{pathFor 'indicadorList'}}">Indicadores</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -38,6 +41,10 @@
                 <li class="divider"></li>
                 <li><a href="{{pathFor 'ieNew'}}">Institución Educativa</a></li>
                 <li><a href="{{pathFor 'docenteNew'}}">Docente</a></li>
+                <li class="divider"></li>
+                <li><a href="{{pathFor 'dominioNew'}}">Dominio</a></li>
+                <li><a href="{{pathFor 'aspectoNew'}}">Aspecto</a></li>
+                <li><a href="{{pathFor 'indicadorNew'}}">Indicador</a></li>
               </ul>
             </li>
             {{/if}}

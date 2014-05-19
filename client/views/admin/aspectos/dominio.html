@@ -1,0 +1,54 @@
+<template name="dominioNew">
+  <div class="page-header">
+    <h2>Crear nuevo Dominio
+      <span class="small pull-right"><a href="{{pathFor 'dominioList'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todos los Dominios</a></span>
+    </h2>
+  </div>
+  <form class="form" role="form">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Dominio" required id="nombre">
+    </div>
+    <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+  </form>
+</template>
+
+<template name="dominioEdit">
+  <div class="page-header">
+    <h2>Editar Dominio
+      <span class="small pull-right"><a href="{{pathFor 'dominioList'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todos los Dominios</a></span>
+    </h2>
+  </div>
+  <form class="form" role="form">
+    <div class="form-group">
+      <label for="nombre">Dominio:</label>
+      <input type="text" class="form-control" placeholder="Dominio" required id="nombre" value="{{nombre}}">
+    </div>
+    <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+  </form>
+</template>
+
+<template name="dominioList">
+  <div class="page-header">
+    <h2>Relación de Dominios
+      <span class="small pull-right"><a href="{{pathFor 'dominioNew'}}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i> Agregar un Dominio</a></span>
+    </h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dominios}}
+      <tr>
+        <td><a href="{{pathFor 'dominioEdit'}}">{{nombre}}</a></td>
+      </tr>
+      {{else}}
+      <tr>
+        <td>Aun no existen Dominios. <a href="{{pathFor 'dominioNew'}}">Crear un Dominio</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

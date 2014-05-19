@@ -28,6 +28,24 @@ Meteor.publish 'docentes', ->
 Meteor.publish 'docente', (id) ->
   id && Docentes.find id
 
+Meteor.publish 'dominios', ->
+  Dominios.find {}
+
+Meteor.publish 'dominio', (id) ->
+  id && Dominios.find id
+
+Meteor.publish 'aspectos', ->
+  Aspectos.find {}
+
+Meteor.publish 'aspecto', (id) ->
+  id && Aspectos.find id
+
+Meteor.publish 'indicadores', ->
+  Indicadores.find {}
+
+Meteor.publish 'indicador', (id) ->
+  id && Indicadores.find id
+
 Meteor.publish 'currentUser', ->
   user = Meteor.users.find {_id: this.userId}
   user

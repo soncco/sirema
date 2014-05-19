@@ -1,0 +1,79 @@
+<template name="aspectoNew">
+  <div class="page-header">
+    <h2>Crear nuevo Aspecto
+      <span class="small pull-right"><a href="{{pathFor 'aspectoList'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todos las Aspectos</a></span>
+    </h2>
+  </div>
+  <form class="form" role="form">
+    <div class="form-group">
+      <select id="dominioId" name="dominioId" class="form-control">
+        <option value="">Dominio</option>
+        {{#each dominios}}
+        <option value="{{_id}}">{{nombre}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Aspecto" required id="nombre">
+    </div>
+    <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+  </form>
+</template>
+
+<template name="aspectoEdit">
+  <div class="page-header">
+    <h2>Editar Aspecto
+      <span class="small pull-right"><a href="{{pathFor 'aspectoList'}}" class="btn btn-sm btn-primary"><i class="fa fa-table"></i> Ver todos las Aspectos</a></span>
+    </h2>
+  </div>
+  <form class="form" role="form">
+    <div class="form-group">
+      <label for="dominioId">Dominio:</label>
+      <select id="dominioId" name="dominioId" class="form-control">
+        <option value="">Dominio</option>
+        {{#each dominios}}
+        <option value="{{_id}}" {{isSelected ../dominioId}}>{{nombre}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Aspecto:</label>
+      <input type="text" class="form-control" placeholder="Aspecto" required id="nombre" value="{{nombre}}">
+    </div>
+    <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+  </form>
+</template>
+
+<template name="aspectoList">
+  <div class="page-header">
+    <h2>Relación de Aspectos
+      <span class="small pull-right"><a href="{{pathFor 'aspectoNew'}}" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle"></i> Agregar un Aspecto</a></span>
+    </h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Dominio</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each aspectos}}
+      <tr>
+        <td><a href="{{pathFor 'aspectoEdit'}}">{{nombre}}</a></td>
+        <td>
+          {{#if dominio}}
+            {{dominio.nombre}}
+          {{else}}
+            Sin dominio
+          {{/if}}
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="2">Aun no existen Aspectos. <a href="{{pathFor 'aspectoNew'}}">Crear un Aspecto</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
