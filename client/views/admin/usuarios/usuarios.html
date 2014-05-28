@@ -1,0 +1,31 @@
+<template name="usuarioList">
+  <div class="page-header">
+    <h2>Relación de Usuarios
+      <span class="small pull-right"><a href="{{pathFor 'usuarioNew'}}" class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i> Agregar un Usuario</a></span>
+    </h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre de usuario</th>
+        <th>Nombres</th>
+        <th>Permisos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+      <tr>
+        <td>{{username}}</td>
+        <td>{{profile.name}}</td>
+        <td>
+            {{objectKey roles}}
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td>Aun no existen Usuarios. <a href="{{pathFor 'userNew'}}">Crear un Usuario</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

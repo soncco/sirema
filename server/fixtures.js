@@ -152,3 +152,63 @@ if(Distritos.find({}).count() === 0) {
     Distritos.insert(d);
   });
 }
+
+if(Dominios.find({}).count() === 0) {
+  dominios = [
+    {"_id":"7ik77igvRr5b4QCRu","nombre":"2. Gestión de las condiciones para la mejora de los aprendizajes"},
+    {"_id":"xHcWGbdv4PAA8AAE2","nombre":"3. Orientación de los Procesos Pedagógicos para la mejora de los aprendizajes"}
+  ].forEach(function(d) {
+    Dominios.insert(d);
+  });
+}
+
+if(Aspectos.find({}).count() === 0) {
+  aspectos = [
+    {"_id": "FfkPaSkxDWMZSgqpg", "dominioId": "7ik77igvRr5b4QCRu", "nombre": "1.1. Planificación Institucional"},
+    {"_id": "CBz2znS8f2Tr98j5y", "dominioId": "7ik77igvRr5b4QCRu", "nombre": "1.2. Participación Democrática"},
+    {"_id": "A9pYcrpCeaEbX8dbY", "dominioId": "7ik77igvRr5b4QCRu", "nombre": "1.3. Condiciones Operativas para el Aprendizaje de Calidad"},
+    {"_id": "jENbqyRd9eMhGpeLS", "dominioId": "xHcWGbdv4PAA8AAE2", "nombre": "3.1. Liderazgo de una comunidad de aprendizaje"},
+    {"_id": "oKsucSpaZ3pTBjGeG", "dominioId": "", "nombre": "II. Organización y Clima del Aula"},
+    {"_id": "fsMK7BKrinZ8DsDAW", "dominioId": "", "nombre": "VI. Participación en la Gestión Pedagógica de la Escuela"},
+    {"_id": "SHWPG2B4EwMLSyhWA", "dominioId": "7ik77igvRr5b4QCRu", "nombre": "1.4. Evaluación de la Gestión y Rendición de Cuentas"},
+    {"_id": "SmbHme7dHeNwhRuJP", "dominioId": "xHcWGbdv4PAA8AAE2", "nombre": "3.2. Gestión de Procesos Pedagógicos"},
+    {"_id": "N5RZvKzKXmM6qpbnz", "dominioId": "", "nombre": "III. Planificación Curricular"},
+    {"_id": "rEt7JJYxTaKjFeTvp", "dominioId": "", "nombre": "V. Evaluación del Aprendizaje"},
+    {"_id": "EPSThx6HsqxJ4Gy9a", "nombre": "IV. Proceso de Enseñanza", "dominioId": ""}
+  ].forEach(function(d) {
+    Aspectos.insert(d);
+  });
+}
+
+if(Indicadores.find({}).count() === 0) {
+ indicadores = [
+    {"_id": "928QrKSyPZGKN7ZkS", "aspectoId": "FfkPaSkxDWMZSgqpg","numero": "1", "descripcion": "Conduce de manera participativa la planificación institucional sobre la base del conocimiento de los procesos pedagógicos, el clima escolar, las características de los estudiantes y su entorno; y la orienta hacia el logro de metas de aprendizaje."},
+    {"_id": "LcizaiBj9NkunhWoA", "aspectoId": "FfkPaSkxDWMZSgqpg","numero": "2", "descripcion": "Diseña de manera participativa los instrumentos de gestión escolar teniendo en cuenta las características del entorno institucional, familiar y social; estableciendo metas de aprendizaje."},
+    {"_id": "oAnvvQTi7DKoENnGT", "aspectoId": "oKsucSpaZ3pTBjGeG","numero": "1", "descripcion": "Organiza el aula y otros espacios (sectores) de forma segura, accesible y adecuada para el trabajo pedagógico y el aprendizaje, atendiendo a la diversidad."},
+    {"_id": "FPHJLGFNFcBrjzBoQ", "aspectoId": "oKsucSpaZ3pTBjGeG","numero": "2", "descripcion": "Construye, de manera asertiva y empática, relaciones interpersonales con y entre los estudiantes, basados en el afecto, la justifica, la confianza, el respeto mutuo y la colaboración basados en el reconocimiento de la diversidad."},
+    {"_id": "iPnqpagB5BDsW6EK8", "aspectoId": "oKsucSpaZ3pTBjGeG","numero": "3", "descripcion": "Orienta su práctica a conseguir logros en sus estudiantes y les comunica altas expectativas sobre sus posibilidades de aprendizaje."},
+    {"_id": "GdK7J4moxFYE7B8Ex", "aspectoId": "oKsucSpaZ3pTBjGeG","numero": "4", "descripcion": "Genera relaciones de respeto, cooperación y soporte entre estudiantes."},
+    {"_id": "tyY2HPTSok2vrwiWa", "aspectoId": "oKsucSpaZ3pTBjGeG","numero": "5", "descripcion": "Resuelve conflictos en diálogo con los estudiantes sobre la base de criterios éticos, normas concertadas de convivencia, códigos culturales y mecanismos pacíficos."},
+    {"_id": "fapKGFcMvHAiNfh8d", "aspectoId": "CBz2znS8f2Tr98j5y","numero": "1", "descripcion": "Promueve espacios y mecanismos de organización y participación del coelctivo escolar en la forma de decisiones, y en el desarrollo de acciones previstas para el cumplimiento de las metas de aprendizaje."},
+    {"_id": "8Fu4zZHSro3N3MHwm", "aspectoId": "CBz2znS8f2Tr98j5y","numero": "2", "descripcion": "Genera un clima escolar basado en el respeto a la diversidad, coaboración y comunicación permanente."},
+    {"_id": "97TDGMHwPS85vxpW3", "aspectoId": "CBz2znS8f2Tr98j5y","numero": "3", "descripcion": "Maneja estrategias de prevención y resolución pacífica de conflictos mediante el diálogo, el consenso y la negociación."},
+    {"_id": "Rz2agume4s48JSzZ6", "aspectoId": "CBz2znS8f2Tr98j5y","numero": "4", "descripcion": "Promueve la participación organizada de las familias, y otras instancias de la comunidad, para el logro de las metas de aprendizaje a partir del reconocimiento de su capital cultural."},
+    {"_id": "GmeugkDJRDTgxEKte", "aspectoId": "A9pYcrpCeaEbX8dbY","numero": "1", "descripcion": "Gestiona el uso óptimode la infraestructura, equipamiento y material educativo disponible, en beneficio de una enseñanza de calidad y el logro de las metas de aprendizaje de los estudiantes."},
+    {"_id": "Huix6iTQHP2Hknxho", "aspectoId": "A9pYcrpCeaEbX8dbY","numero": "2", "descripcion": "Gestiona el uso óptimo de los recursos financieros en beneficio de las metas de aprendizaje trazadas por la institución educativa, bajo un enfoque orientado a los resultados."},
+    {"_id": "8WtpTRbcBr9nMvPet", "aspectoId": "A9pYcrpCeaEbX8dbY","numero": "3", "descripcion": "Gestiona el uso óptimo de los recursos financieros en beneficio de las metas de aprendizaje trazadas por la institución educativa, bajo un enfoque orientado a resultados."},
+    {"_id": "8vWd4v2EZSrRANzDn", "aspectoId": "A9pYcrpCeaEbX8dbY","numero": "4", "descripcion": "Gestiona el desarrollo de estrategias de prevención y manejo de situaciones de riesgo que aseguren la seguridad e integridad de los miembros de la comunidad educativa."},
+    {"_id": "ZtqjnG3Rnmvm9QgrA", "aspectoId": "A9pYcrpCeaEbX8dbY","numero": "5", "descripcion": "Dirige el equipo administrativo y/o de soporte de la institución educativa orientando su desempeño hacia el logro de los objetivos institucionales."},
+    {"_id": "WarXdwLYdgswq4rMp", "aspectoId": "SHWPG2B4EwMLSyhWA","numero": "1", "descripcion": "Gestiona la información que produce la escuela y la emplea como insumo en la toma de decisiones institucionales en favor de la mejora de los aprendizajes."},
+    {"_id": "k2bzreTcmpw7dKHbH", "aspectoId": "SHWPG2B4EwMLSyhWA","numero": "2", "descripcion": "Implementa estrategias y mecanismos de transparencia y rendición de cuentas sobre la gestión escolar ante la comunidad educativa."},
+    {"_id": "GAELfKcNNrKJ7KdZb", "aspectoId": "SHWPG2B4EwMLSyhWA","numero": "3", "descripcion": "Conduce de manera participativa los procesos de autoevaluación y mejora continua, orientándolos al logro de las metas de aprendizaje."},
+    {"_id": "nGfnmCiK8bf4RcQzj", "aspectoId": "jENbqyRd9eMhGpeLS","numero": "1", "descripcion": "Gestiona oportunidades de formación continua para los docentes, orientada a mejorar su desempeño en función al logro de las metas de aprendizaje."},
+    {"_id": "cKwZfpEKoRfkweYxE", "aspectoId": "jENbqyRd9eMhGpeLS","numero": "2", "descripcion": "Genera especios y mecanismos para el trabajo colaborativo entre los docentes, y la reflexión sobre las prácticas pedagógicas que contribuyen a la mejora de la enseñanza y del clima escolar."},
+    {"_id": "Rvzome6spgbxtt587", "aspectoId": "jENbqyRd9eMhGpeLS","numero": "3", "descripcion": "EStimula las iniciativas de los docentes relacionadas a innovacionse e investigaciones pedagógicas, e impulsa su sistematización."},
+    {"_id": "DkcDyXt7ervETM8xa", "aspectoId": "SmbHme7dHeNwhRuJP","numero": "1", "descripcion": "Orienta y promueve la participación del equipo docente en los procesos de planificación curricular, a partir de los lineamientos del sistema curricular y en la articulación con la propuesta curricular regional."},
+    {"_id": "qnKF7yRdFA3EshsKN", "aspectoId": "SmbHme7dHeNwhRuJP","numero": "2", "descripcion": "Propicia una práctica docente basada en el aprendizaje colaborativo y por indagación; y el conocimiento de la diversidad existente en el aula y lo que es pertinente a ella."},
+    {"_id": "a8HmGSG8ANnLAdk4x", "aspectoId": "SmbHme7dHeNwhRuJP","numero": "3", "descripcion": "Monitorea y orieta el uso de estrategias y rescursos metodológicos, así como el uso efectivo del tiempo y materiales educativos, en función del logro de las metas de aprendizaje de los estudiantes y considerando la atención de sus necesidades específicas."},
+    {"_id": "P9mD7W3NaYEwENZHW", "aspectoId": "SmbHme7dHeNwhRuJP","numero": "4", "descripcion": "Monitorea y orienta el proceso de evaluación de los aprendizajes a partir de criterios claros y coherentes con los aprendizajes que se desean lograr, asegurando la comunicación oportuna de los resultados y la implementación de acciones de mejora."}
+  ].forEach(function(d) {
+    Indicadores.insert(d);
+  });
+}

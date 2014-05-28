@@ -17,3 +17,8 @@
 @areas = 
   urbana: 'Urbana'
   rural: 'Rural'
+
+@userTypes =
+  admin: 'Administrador'
+  boss: 'Jefe de UGEL'
+  specialist: 'Especialista'

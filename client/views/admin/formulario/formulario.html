@@ -1,0 +1,72 @@
+<template name="formularioNew">
+  <div class="page-header">
+    <h2>Crear nuevo Formulario
+      <span class="small pull-right"><a href="{{pathFor 'formularioList'}}" class="btn btn-sm btn-success"><i class="fa fa-table"></i> Ver todos los Formularios</a></span>
+    </h2>
+  </div>
+  <form class="form" role="form">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Nombre" required id="nombre">
+    </div>
+    <div class="form-group">
+      <table class="table table-striped table-hover">
+        <tbody>
+          <tr>
+            <th colspan="2">Dominios</th>
+          </tr>
+          {{#each dominios}}
+          <tr>
+            <td><input type="checkbox" class="dominio" data-dominio="{{_id}}" value="{{_id}}"></td>
+            <td class="data-chk">{{nombre}}</td>
+          </tr>
+          {{/each}}
+          <tr>
+            <th colspan="2">Aspectos</th>
+          </tr>
+          {{#each aspectos}}
+          <tr>
+            <td><input type="checkbox" class="aspecto" data-aspecto="{{_id}}" data-parent-aspecto="{{dominioId}}" value="{{_id}}"></td>
+            <td class="data-chk">{{nombre}}</td>
+          </tr>
+          {{/each}}
+          <tr>
+            <th colspan="2">Indicadores</th>
+          </tr>
+          {{#each indicadores}}
+          <tr>
+            <td><input type="checkbox" class="indicador" data-indicador="{{_id}}" data-parent-indicador="{{aspectoId}}" value="{{_id}}"></td>
+            <td class="data-chk">{{descripcion}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+  </form>
+</template>
+
+<template name="formularioList">
+  <div class="page-header">
+    <h2>Relación de Formularios
+      <span class="small pull-right"><a href="{{pathFor 'formularioNew'}}" class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i> Agregar un Formulario</a></span>
+    </h2>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each formularios}}
+      <tr>
+        <td>{{nombre}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td>Aun no existen Formularios. <a href="{{pathFor 'formularioNew'}}">Crear un Formulario</a>.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

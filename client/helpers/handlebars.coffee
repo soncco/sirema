@@ -21,3 +21,8 @@ Handlebars.registerHelper 'optionObjectCompare', (obj, val, opts) ->
   for key, value of obj
     if val = key then sel = "selected"
     "<option value=#{key} #{sel}>#{value}</option>"
+
+Handlebars.registerHelper 'objectKey', (obj, opts) ->
+  for key, value of obj
+    val = userTypes[value]
+    " #{val}"

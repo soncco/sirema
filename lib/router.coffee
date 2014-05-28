@@ -129,7 +129,7 @@ Router.map ->
     data: ->
       Docentes.findOne '_id': @params._id
 
-  # Aspectos
+  # Aspectos.
   @route 'dominioNew',
     path: 'dominio-nuevo'
     loading: false
@@ -187,6 +187,27 @@ Router.map ->
     data: ->
       Indicadores.findOne '_id': @params._id
 
+  # Formularios.
+  @route 'formularioNew',
+    path: 'formulario-nuevo'
+    waitOn: ->
+      [
+        Meteor.subscribe('dominios'),
+        Meteor.subscribe('aspectos'),
+        Meteor.subscribe('indicadores')
+      ]
+    fastRender: true
+
+  @route 'formularioList',
+    path: 'formularios'
+    waitOn: ->
+      Meteor.subscribe 'formularios'
+
+  # Usuarios.
+  @route 'usuarioList',
+    path: 'usuarios'
+    waitOn: ->
+      Meteor.subscribe 'usuarios'
 
   @route 'forbidden',
 
@@ -200,9 +221,9 @@ Router.onBeforeAction filters.isAdmin,
     'provinciaNew', 'provinciaEdit', 'provinciaList',
     'distritoNew', 'distritoEdit', 'distritoList',
     'ieNew', 'ieEdit', 'ieList',
-    'dominioNew',
-    'aspectoNew',
-    'indicadorNew',
+    'dominioNew', 'dominioEdit', 'dominioList',
+    'aspectoNew', 'aspectoEdit', 'aspectoList',
+    'indicadorNew', 'indicadorEdit', 'indicadorList'
   ]
 Router.onBeforeAction filters.isLoggedIn,
   only: [
@@ -210,7 +231,7 @@ Router.onBeforeAction filters.isLoggedIn,
     'provinciaNew', 'provinciaEdit', 'provinciaList',
     'distritoNew', 'distritoEdit', 'distritoList',
     'ieNew', 'ieEdit', 'ieList',
-    'dominioNew',
-    'aspectoNew',
-    'indicadorNew',
+    'dominioNew', 'dominioEdit', 'dominioList',
+    'aspectoNew', 'aspectoEdit', 'aspectoList',
+    'indicadorNew', 'indicadorEdit', 'indicadorList'
   ]

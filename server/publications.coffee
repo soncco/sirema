@@ -46,6 +46,12 @@ Meteor.publish 'indicadores', ->
 Meteor.publish 'indicador', (id) ->
   id && Indicadores.find id
 
+Meteor.publish 'formularios', ->
+  Formularios.find {}
+
+Meteor.publish 'usuarios', ->
+  Meteor.users.find {}
+
 Meteor.publish 'currentUser', ->
   user = Meteor.users.find {_id: this.userId}
   user

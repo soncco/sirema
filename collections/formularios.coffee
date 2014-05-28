@@ -1,0 +1,1 @@
+@Formularios = new Meteor.Collection('formularios')
