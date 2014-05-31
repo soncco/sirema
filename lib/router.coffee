@@ -209,6 +209,20 @@ Router.map ->
     waitOn: ->
       Meteor.subscribe 'usuarios'
 
+  @route 'usuarioNew', 
+    path: '/usuario-nuevo'
+    progress: 
+      enabled: false
+
+  @route 'usuarioEdit', 
+    path: '/usuario/:_id'
+    waitOn: ->
+      Meteor.subscribe 'usuario', @params._id
+    data: ->
+      usuario.findOne
+        _id: @params._id
+    fastRender: true
+
   @route 'forbidden',
 
   @route 'error404'
