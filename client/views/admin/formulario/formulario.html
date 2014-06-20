@@ -5,9 +5,25 @@
     </h2>
   </div>
   <form class="form" role="form">
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Nombre" required id="nombre">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="Nombre del Formulario" required id="nombre" autofocus>
+        </div>
+        <div class="col-sm-6">
+          <div class="radio-inline">
+            <label>Corresponde a:</label>
+          </div>
+          <div class="radio-inline">
+            <label><input type="radio" class="tipo" name="tipo" id="docente" value="docente" checked> Docente</label>
+          </div>
+          <div class="radio-inline">
+            <label><input type="radio" class="tipo" name="tipo" id="directivo" value="directivo"> Directivo</label>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="form-group">
       <table class="table table-striped table-hover">
         <tbody>
@@ -41,7 +57,9 @@
         </tbody>
       </table>
     </div>
-    <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>
+    <div class="actions">
+      <button class="btn btn-primary btn-block" id="" type="submit" name="submit"><i class="fa fa-save"></i> Guardar</button>      
+    </div>
   </form>
 </template>
 
@@ -55,12 +73,19 @@
     <thead>
       <tr>
         <th>Nombre</th>
+        <th>Dirigido a</th>
+        <th class="text-center">Acciones</th>
       </tr>
     </thead>
     <tbody>
       {{#each formularios}}
       <tr>
         <td>{{nombre}}</td>
+        <td>{{tipo}}</td>
+        <td class="text-center">
+          <a href="" class="btn btn-info btn-sm no-line"><i class="fa fa-folder-open"></i> Ver</a>
+          <a href="" class="btn btn-info btn-sm no-line"><i class="fa fa-pencil"></i> Editar</a>
+        </td>
       </tr>
       {{else}}
       <tr>

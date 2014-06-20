@@ -22,3 +22,7 @@
   admin: 'Administrador'
   boss: 'Jefe de UGEL'
   specialist: 'Especialista'
+
+@formTypes =
+  docente: 'Docente'
+  directivo: 'Directivo'

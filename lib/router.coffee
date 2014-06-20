@@ -237,7 +237,8 @@ Router.onBeforeAction filters.isAdmin,
     'ieNew', 'ieEdit', 'ieList',
     'dominioNew', 'dominioEdit', 'dominioList',
     'aspectoNew', 'aspectoEdit', 'aspectoList',
-    'indicadorNew', 'indicadorEdit', 'indicadorList'
+    'indicadorNew', 'indicadorEdit', 'indicadorList',
+    'formularioNew', 'formularioList'
   ]
 Router.onBeforeAction filters.isLoggedIn,
   only: [
@@ -247,5 +248,6 @@ Router.onBeforeAction filters.isLoggedIn,
     'ieNew', 'ieEdit', 'ieList',
     'dominioNew', 'dominioEdit', 'dominioList',
     'aspectoNew', 'aspectoEdit', 'aspectoList',
-    'indicadorNew', 'indicadorEdit', 'indicadorList'
+    'indicadorNew', 'indicadorEdit', 'indicadorList',
+    'formularioNew', 'formularioList'
   ]

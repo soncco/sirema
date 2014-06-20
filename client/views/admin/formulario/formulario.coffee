@@ -34,8 +34,10 @@ Template.formularioNew.events
     nombre = $('#nombre').val()
     dominios = $('.dominio')
     aspectos = $('.aspecto')
+    tipo = $('.tipo').val()
 
     formulario =
+      tipo: tipo
       nombre: nombre
       dominios: []
       aspectos: []
@@ -53,8 +55,8 @@ Template.formularioNew.events
     _id = Formularios.insert(formulario)
 
     FlashMessages.sendSuccess 'Se creó un Formulario'
-    Router.go 'formularioNew',
-      _id: id
+    Router.go 'formularioList',
+      _id: _id
 
     return
 

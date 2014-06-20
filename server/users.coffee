@@ -1,7 +1,7 @@
 Accounts.onCreateUser (options, user) ->
   userProperties =
     profile: options.profile || {}
-    roles: []
+    roles: options.roles || []
 
   user = _.extend user, userProperties
 
