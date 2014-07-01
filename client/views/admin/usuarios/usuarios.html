@@ -54,7 +54,7 @@
       </div>
       <div class="col-md-4 line-left">
         <div class="page-header mini">
-          <h5>Roles</h5>      
+          <h5>Roles</h5>
         </div>
         <div class="checkbox">
           <label>
@@ -70,6 +70,17 @@
           <label>
             <input type="checkbox" class="role" id="specialist" value="specialist"> Especialista
           </label>
+        </div>
+        <div class="page-header mini">
+          <h5>Regiones asignadas <i class="fa fa-asterisk"></i></h5>
+        </div>
+        <div class="form-group">
+          <select name="" id="" multiple="" class="form-control" size="10">
+            {{#each regiones}}
+            <option value="{{_id}}">{{nombre}}</option>
+            {{/each}}
+          </select>
+          <span class="help-block small"><i class="fa fa-asterisk"></i> Los administradores tienen permisos en todas las regiones.</span>
         </div>
       </div>
     </div>

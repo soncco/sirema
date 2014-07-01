@@ -34,6 +34,7 @@ Template.formularioNew.events
     nombre = $('#nombre').val()
     dominios = $('.dominio')
     aspectos = $('.aspecto')
+    indicadores = $('.indicador')
     tipo = $('.tipo').val()
 
     formulario =
@@ -41,6 +42,7 @@ Template.formularioNew.events
       nombre: nombre
       dominios: []
       aspectos: []
+      indicadores: []
 
     dominios.each (d) ->
       if $(@).is(':checked')
@@ -49,7 +51,12 @@ Template.formularioNew.events
 
     aspectos.each (d) ->
       if $(@).is(':checked')
-        formulario.aspectos.push {'aspectoId': $(@).val()}
+        formulario.aspectos.push {'aspectoId': $(@).val(), 'parent': $(@).data('parent-aspecto')}
+      return
+
+    indicadores.each (d) ->
+      if $(@).is(':checked')
+        formulario.indicadores.push {'indicadorId': $(@).val(), 'parent': $(@).data('parent-indicador')}
       return
 
     _id = Formularios.insert(formulario)

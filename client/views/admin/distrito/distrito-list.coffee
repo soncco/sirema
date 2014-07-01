@@ -4,3 +4,5 @@ Template.distritoList.helpers distritos: ->
 Template.distritoList.provincia = ->
   Meteor.subscribe "provincia", @provinciaId
   Provincias.findOne _id: @provinciaId
+
+Template.distritoList.rendered = siremaTableSorter

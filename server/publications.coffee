@@ -49,6 +49,9 @@ Meteor.publish 'indicador', (id) ->
 Meteor.publish 'formularios', ->
   Formularios.find {}
 
+Meteor.publish 'formulario', (id) ->
+  id && Formularios.find id
+
 Meteor.publish 'usuarios', ->
   Meteor.users.find {}
 

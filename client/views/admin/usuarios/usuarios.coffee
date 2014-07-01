@@ -2,6 +2,9 @@ Template.usuarioList.helpers
   users: ->
     Meteor.users.find {}
 
+Template.usuarioNew.helpers regiones: ->
+    Regiones.find {}
+
 Template.usuarioNew.events
   'submit .form': (e) ->
     e.preventDefault()

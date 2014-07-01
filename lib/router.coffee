@@ -1,8 +1,18 @@
+preloadSubscriptions = (if typeof preloadSubscriptions is "undefined" then [] else preloadSubscriptions)
+preloadSubscriptions.push 'formularios'
+preloadSubscriptions.push 'currentUser'
+
 Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
   waitOn: ->
-    return Meteor.subscribe 'currentUser'
+    _.map preloadSubscriptions, (sub) ->
+      
+      if typeof sub is "object"
+        Meteor.subscribe sub.subName, sub.subArguments
+      else
+        Meteor.subscribe sub
+
 
 filters =
   isAdmin: (pause)->
@@ -211,15 +221,25 @@ Router.map ->
 
   @route 'usuarioNew', 
     path: '/usuario-nuevo'
-    progress: 
-      enabled: false
+    waitOn: ->
+      Meteor.subscribe 'regiones'
 
   @route 'usuarioEdit', 
     path: '/usuario/:_id'
     waitOn: ->
       Meteor.subscribe 'usuario', @params._id
     data: ->
-      usuario.findOne
+      Usuarios.findOne
+        _id: @params._id
+    fastRender: true
+
+  # Data
+  @route 'insertData',
+    path: 'formdata/insert/:_id'
+    waitOn: ->
+      Meteor.subscribe 'formulario', @params._id
+    data: ->
+      Formularios.findOne
         _id: @params._id
     fastRender: true
 
@@ -251,3 +271,9 @@ Router.onBeforeAction filters.isLoggedIn,
     'indicadorNew', 'indicadorEdit', 'indicadorList',
     'formularioNew', 'formularioList'
   ]
+
+if Meteor.isServer
+  FastRender.onAllRoutes ->
+    router = @
+    _.each preloadSubscriptions, (sub) ->
+      router.subscribe sub
