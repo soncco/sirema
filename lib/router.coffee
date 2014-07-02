@@ -237,11 +237,14 @@ Router.map ->
   @route 'insertData',
     path: 'formdata/insert/:_id'
     waitOn: ->
-      Meteor.subscribe 'formulario', @params._id
+      [
+        Meteor.subscribe('formulario', @params._id),
+        Meteor.subscribe('ies')
+      ]
     data: ->
       Formularios.findOne
         _id: @params._id
-    fastRender: true
+    #fastRender: true
 
   @route 'forbidden',
 

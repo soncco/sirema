@@ -1,8 +1,31 @@
-Handlebars.registerHelper 'ifEqual', (a, b, opts) ->
-  if a is b
-    opts.fn this
-  else
-    opts.inverse this
+Handlebars.registerHelper "ifEqual", (v1, v2, options) ->
+  debugger
+  return options.fn(this)  if v1 is v2
+  options.inverse this
+
+# {{#ifCond var1 '==' var2}}
+Handlebars.registerHelper "ifCond", (v1, operator, v2, options) ->
+  debugger
+  switch operator
+    when "=="
+      (if (v1 is v2) then options.fn(@) else options.inverse(@))
+    when "==="
+      (if (v1 is v2) then options.fn(@) else options.inverse(@))
+    when "<"
+      (if (v1 < v2) then options.fn(@) else options.inverse(@))
+    when "<="
+      (if (v1 <= v2) then options.fn(@) else options.inverse(@))
+    when ">"
+      (if (v1 > v2) then options.fn(@) else options.inverse(@))
+    when ">="
+      (if (v1 >= v2) then options.fn(@) else options.inverse(@))
+    when "&&"
+      (if (v1 and v2) then options.fn(@) else options.inverse(@))
+    when "||"
+      (if (v1 or v2) then options.fn(@) else options.inverse(@))
+    else
+      options.inverse @
+
 
 Handlebars.registerHelper 'isAdmin', (showError) ->
   if isAdmin(Meteor.user())
