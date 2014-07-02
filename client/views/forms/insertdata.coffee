@@ -105,10 +105,77 @@ Template.insertData.events
     e.preventDefault()
     rows = $('.irow').length
     radios = $('.indicador:checked').length
+    
     if radios < rows
       FlashMessages.sendError 'No haz llenado todos los indicadores'
       return false
 
-    
+    if $('#director').val() == ''
+      FlashMessages.sendError 'Por favor escoge nuevamente la Institución Educativa'
+      return false
+
+    tipo = $('#tipo').val()
+
+    ieData = (id) ->
+      Meteor.subscribe 'ie', id
+      Ies.findOne '_id': id
+
+    distritoData = (id) ->
+      Meteor.subscribe 'distrito', id
+      distrito = Distritos.findOne '_id': id
+      if distrito
+        distrito
+
+    provinciaData = (id) ->
+      Meteor.subscribe 'provincia', id
+      provincia = Provincias.findOne '_id': id
+      if provincia
+        provincia
+
+    regionData = (id) ->
+      Meteor.subscribe 'region', id
+      region = Regiones.findOne '_id': id
+      if region
+        region
+
+    if tipo == 'directivo'
+      data =
+        ie: ieData $('#ieId').val()
+        director: $('#director').val()
+        situacion: $('#situacion').val()
+        dni: $('#dni').val()
+        nro_docentes: $('#nro_docentes').val()
+        nro_varones: $('#nro_varones').val()
+        nro_mujeres: $('#nro_mujeres').val()
+        indicadores: []
+
+      
+      chk = $('.indicador:checked');
+      chk.each (i) ->
+        row = {}
+        row.valor = $(@).val()
+        row.indicadorId = $(@).data('id')
+        row.evidencia = $('#t-' + row.indicadorId).val()
+        data.indicadores.push row
+        return
+
+      #console.log data
+      if data.ie
+        data.distrito = distritoData(data.ie.distritoId)
+      if data.distrito
+        data.provincia = provinciaData(data.distrito.provinciaId)
+      if data.provincia
+        data.region = regionData(data.provincia.regionId)
+
+      _id = FormDirectivos.insert(data)
+      
+      if(_id)
+        FlashMessages.sendSuccess 'Se guardó la información'
+        Router.go 'formularioList',
+          _id: _id
+      else
+        FlashMessages.sendError 'Hubo un problema al guardar los datos'
+      return
+
 
 

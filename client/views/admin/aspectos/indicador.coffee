@@ -50,3 +50,5 @@ Template.indicadorList.helpers
   aspecto: ->
     Meteor.subscribe 'aspecto', @aspectoId
     Aspectos.findOne _id: @aspectoId
+
+Template.indicadorList.rendered = siremaTableSorter

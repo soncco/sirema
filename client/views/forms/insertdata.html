@@ -3,6 +3,7 @@
     <h2>{{nombre}}</h2>
   </div>
   <form class="form" role="form">
+    <input type="hidden" name="tipo" id="tipo" value="{{#if directivo}}directivo{{else}}docente{{/if}}">
     {{#if directivo}}
     <div class="page-header mini">
       <h5><strong>1. Datos Informativos</strong></h5>
@@ -68,22 +69,22 @@
                   <td>{{data.descripcion}}</td>
                   <td>
                     <label>
-                      <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" value="1"> 1
+                      <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="1"> 1
                     </label>
                   </td>
                   <td>
                     <label>
-                      <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" value="2"> 2
+                      <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="2"> 2
                     </label>
                   </td>
                   <td>
                     <label>
-                      <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" value="3"> 3
+                      <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="3"> 3
                     </label>
                   </td>
                   <td>
                     <label>
-                      <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" value="4"> 4
+                      <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="4"> 4
                     </label>
                   </td>
                   <td>
@@ -113,22 +114,22 @@
                 <td>{{data.descripcion}}</td>
                 <td>
                   <label>
-                    <input type="radio" name="i-{{data._id}}" id="i-{{data._id}}" value="1" checked> 1
+                    <input type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="1" checked> 1
                   </label>
                 </td>
                 <td>
                   <label>
-                    <input type="radio" name="i-{{data._id}}" id="i-{{data._id}}" value="2"> 2
+                    <input type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="2"> 2
                   </label>
                 </td>
                 <td>
                   <label>
-                    <input type="radio" name="i-{{data._id}}" id="i-{{data._id}}" value="3"> 3
+                    <input type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="3"> 3
                   </label>
                 </td>
                 <td>
                   <label>
-                    <input type="radio" name="i-{{data._id}}" id="i-{{data._id}}" value="4"> 4
+                    <input type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="4"> 4
                   </label>
                 </td>
               </tr>

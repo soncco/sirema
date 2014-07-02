@@ -13,3 +13,5 @@ Template.ieList.helpers
 Template.ieList.lugar = ->
   Meteor.subscribe "distrito", @distritoId
   Distritos.findOne _id: @distritoId
+
+Template.ieList.rendered = siremaTableSorter

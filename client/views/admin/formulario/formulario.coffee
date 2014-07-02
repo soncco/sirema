@@ -35,7 +35,7 @@ Template.formularioNew.events
     dominios = $('.dominio')
     aspectos = $('.aspecto')
     indicadores = $('.indicador')
-    tipo = $('.tipo').val()
+    tipo = $('.tipo:checked').val()
 
     formulario =
       tipo: tipo
