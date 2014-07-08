@@ -13,9 +13,11 @@ flash-messages
 iron-router-progress
 insecure
 fast-render
-jqGrid
 autocomplete
 coffeescript
 accounts-base
 accounts-password
 accounts-ui-bootstrap-3
+jquery-datatables
+jquery-ui
+jquery-ui-bootstrap

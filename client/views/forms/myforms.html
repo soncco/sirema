@@ -1,0 +1,53 @@
+<template name="myforms">
+  <div class="page-header">
+    <h2>Formularios llenados</h2>
+  </div>
+
+  <div class="page-header mini">
+    <h5>Formularios de docente</h5>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Formulario</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each docentes}}
+      <tr>
+        <td>{{formulario.nombre}}</td>
+        <td>{{momentFecha}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="2">Todavía no se han llenado formularios</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <hr>
+  <div class="page-header mini">
+    <h5>Formularios de directivo</h5>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Formulario</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each directivos}}
+      <tr>
+        <td>{{formulario.nombre}}</td>
+        <td>{{momentFecha}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="2">Todavía no se han llenado formularios</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

@@ -1,0 +1,93 @@
+<template name="treeDirectivo">
+  <tbody>
+    {{#each directivoTree}}
+      <tr>
+        <th colspan="8">{{data.nombre}}</th>
+      </tr>
+      {{#each aspectos}}
+        <tr>
+          <th></th>
+          <th colspan="2">{{data.nombre}}</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>Evidencias</th>
+        </tr>
+        {{#each indicadores}}
+          <tr data-id="{{data._id}}" class="irow">
+            <td></td>
+            <th>{{data.numero}}</th>
+            <td>{{data.descripcion}}</td>
+            <td>
+              <label>
+                <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="1"> 1
+              </label>
+            </td>
+            <td>
+              <label>
+                <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="2"> 2
+              </label>
+            </td>
+            <td>
+              <label>
+                <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="3"> 3
+              </label>
+            </td>
+            <td>
+              <label>
+                <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="4"> 4
+              </label>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="text" class="form-control input-sm" name="t-{{data._id}}" id="t-{{data._id}}">
+              </div>
+            </td>
+          </tr>
+        {{/each}}
+      {{/each}}
+    {{/each}}
+  </tbody>
+</template>
+
+<template name="treeDocente">
+  <tbody>
+    {{#each docenteTree}}
+      <tr>
+        <th colspan="3">{{data.nombre}}</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+      </tr>
+      {{#each indicadores}}
+        <tr data-id="{{data._id}}" class="irow">
+          <td></td>
+          <th>{{data.numero}}</th>
+          <td>{{data.descripcion}}</td>
+          <td>
+            <label>
+              <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="1" checked> 1
+            </label>
+          </td>
+          <td>
+            <label>
+              <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="2"> 2
+            </label>
+          </td>
+          <td>
+            <label>
+              <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="3"> 3
+            </label>
+          </td>
+          <td>
+            <label>
+              <input class="indicador" type="radio" name="i-{{data._id}}" id="i-{{data._id}}" data-id="{{data._id}}" value="4"> 4
+            </label>
+          </td>
+        </tr>
+      {{/each}}
+    {{/each}}
+  </tbody>
+</template>

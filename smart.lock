@@ -9,15 +9,16 @@
       "flash-messages": {},
       "iron-router-progress": {},
       "fast-render": {},
-      "jqGrid": {},
       "autocomplete": {},
-      "accounts-ui-bootstrap-3": {}
+      "accounts-ui-bootstrap-3": {},
+      "jquery-datatables": {},
+      "jquery-ui-bootstrap": {}
     },
     "packages": {
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.1.1-1",
-        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+        "tag": "v3.2.0-1",
+        "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
@@ -41,18 +42,13 @@
       },
       "iron-router-progress": {
         "git": "https://github.com/Multiply/iron-router-progress.git",
-        "tag": "v0.4.0",
-        "commit": "02f78bdaca4c13d59f548d5a0ce83408c34b56d1"
+        "tag": "v0.4.1",
+        "commit": "496fcda9a6ec352b4733725f60c6f280250c3541"
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
         "tag": "v0.2.8",
         "commit": "149984b1aff3a5642a270aff9bd9006872c8302e"
-      },
-      "jqGrid": {
-        "git": "https://github.com/soncco/meteor-jqGrid.git",
-        "tag": "v0.1.5",
-        "commit": "03db776ba7b3ed05fe6d98ef63fce63b433ae87e"
       },
       "autocomplete": {
         "git": "https://github.com/mizzao/meteor-autocomplete.git",
@@ -61,23 +57,38 @@
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.3.0-1",
-        "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
+        "tag": "v0.3.3",
+        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
+      },
+      "jquery-datatables": {
+        "git": "https://github.com/lumapictures/meteor-jquery-datatables",
+        "tag": "v1.0.5",
+        "commit": "fe4fb3178386f88eeac9139b7680646b320e321d"
+      },
+      "jquery-ui-bootstrap": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui-bootstrap.git",
+        "tag": "v0.1.2",
+        "commit": "fa742a85639307003e105898e15b631394b63509"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
         "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       },
-      "jquery-ui": {
-        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
-        "tag": "v1.9.2",
-        "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
-      },
       "caret-position": {
         "git": "https://github.com/StockBase/meteor-caret-position.git",
         "tag": "v2.1.0-3",
         "commit": "6028cf980f62cbf72cb2ea527091a3a31f87b8a7"
+      },
+      "luma-component": {
+        "git": "https://github.com/LumaPictures/meteor-luma-component",
+        "tag": "v1.0.5",
+        "commit": "9d567068048e9ca82699b096e78c3f7ec76c0fa4"
+      },
+      "jquery-ui": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
+        "tag": "v1.9.2",
+        "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
       }
     }
   }

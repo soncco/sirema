@@ -1,0 +1,148 @@
+<template name="headerDirectivo">
+  <div class="page-header mini">
+    <h5><strong>1. Datos Informativos</strong></h5>
+  </div>
+  <div class="form-group">
+    {{> inputAutocomplete settings=settings id="ie" class="form-control input-sm" placeholder="Institución Educativa" required="required"}}
+    <input type="hidden" id="ieId" value="">
+  </div>
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-8">
+        <input type="text" name="director" id="director" class="form-control input-sm" readonly placeholder="Director">
+      </div>
+      <div class="col-sm-2">
+        <input type="text" name="situacion" id="situacion" class="form-control input-sm" placeholder="Situación Laboral" required>
+      </div>
+      <div class="col-sm-2">
+        <input type="text" name="dni" id="dni" class="form-control input-sm" placeholder="DNI" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-3">
+        <input type="number" step="1" min="1" name="nro_docentes" id="nro_docentes" class="form-control input-sm" placeholder="Nro Docentes" required>
+      </div>
+      <div class="col-sm-3">
+        <input type="number" step="1" min="1" name="nro_estudiantes" id="nro_estudiantes" class="form-control input-sm" placeholder="Nro Estudiantes" required>
+      </div>
+      <div class="col-sm-3">
+        <input type="number" step="1" min="0" name="nro_varones" id="nro_varones" class="form-control input-sm" placeholder="Varones" required>
+      </div>
+      <div class="col-sm-3">
+        <input type="number" step="1" min="0" name="nro_mujeres" id="nro_mujeres" class="form-control input-sm" placeholder="Mujeres" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-4">
+        <input type="text" class="form-control input-sm datepicker" name="fecha" id="fecha" placeholder="Fecha" required>
+        <input type="hidden" name="timestamp" id="timestamp" value=""> 
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control input-sm" name="hora_inicio" id="hora_inicio" placeholder="Hora Inicio HH:MM" required>
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control input-sm" name="hora_fin" id="hora_fin" placeholder="Hora Fin HH:MM" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden-section">
+    <input type="hidden" name="distritoId" id="distritoId">
+    <input type="hidden" name="provinciaId" id="provinciaId">
+    <input type="hidden" name="regionId" id="regionId">
+  </div>
+</template>
+
+<template name="headerDocente">
+  <div class="page-header mini">
+    <h5><strong>I. Datos Informativos</strong></h5>
+  </div>
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-6">
+        {{> inputAutocomplete settings=settings id="docente" class="form-control input-sm" placeholder="Docente" required="required"}}
+        <input type="hidden" id="idDocente" value="">
+      </div>
+      <div class="col-sm-6">
+        <input type="text" name="ie" id="ie" class="form-control input-sm" readonly placeholder="Institución Educativa">
+        <input type="hidden" id="ieId" value="">
+      </div>
+    </div>    
+  </div>
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-8">
+        <input type="text" name="director" id="director" class="form-control input-sm" readonly placeholder="Director">
+      </div>
+      <div class="col-sm-2">
+        <input type="text" name="situacion" id="situacion" class="form-control input-sm" placeholder="Situación Laboral" required>
+      </div>
+      <div class="col-sm-2">
+        <input type="text" name="dni" id="dni" class="form-control input-sm" placeholder="DNI" required>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-6">
+        <input type="text" name="grado" id="grado" class="form-control input-sm" placeholder="Grado" required>
+      </div>
+      <div class="col-sm-6">
+        <input type="text" name="seccion" id="seccion" class="form-control input-sm" placeholder="Sección" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-4">
+        <input type="number" step="1" min="1" name="nro_estudiantes" id="nro_estudiantes" class="form-control input-sm" placeholder="Nro Estudiantes" required>
+      </div>
+      <div class="col-sm-4">
+        <input type="number" step="1" min="0" name="nro_varones" id="nro_varones" class="form-control input-sm" placeholder="Varones" required>
+      </div>
+      <div class="col-sm-4">
+        <input type="number" step="1" min="0" name="nro_mujeres" id="nro_mujeres" class="form-control input-sm" placeholder="Mujeres" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-4">
+        <input type="text" class="form-control input-sm datepicker" name="fecha" id="fecha" placeholder="Fecha" required>
+        <input type="hidden" name="timestamp" id="timestamp" value=""> 
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control input-sm" name="hora_inicio" id="hora_inicio" placeholder="Hora Inicio HH:MM" required>
+      </div>
+      <div class="col-sm-4">
+        <input type="text" class="form-control input-sm" name="hora_fin" id="hora_fin" placeholder="Hora Fin HH:MM" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden-section">
+    <input type="hidden" name="distritoId" id="distritoId">
+    <input type="hidden" name="provinciaId" id="provinciaId">
+    <input type="hidden" name="regionId" id="regionId">
+  </div>
+</template>
+
+<template name="acIe">
+  <span data-id="{{_id}}" class="ac-widget">{{distrito.nombre}} -> {{nombre}}</span>
+</template>
+
+<template name="acDocente">
+  <span data-id="{{_id}}" class="ac-widget">{{ie.nombre}} -> {{nombres}}</span>
+</template>

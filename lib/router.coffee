@@ -239,12 +239,21 @@ Router.map ->
     waitOn: ->
       [
         Meteor.subscribe('formulario', @params._id),
-        Meteor.subscribe('ies')
+        Meteor.subscribe('ies'),
+        Meteor.subscribe('docentes'),
       ]
     data: ->
       Formularios.findOne
         _id: @params._id
-    #fastRender: true
+    fastRender: true
+
+  @route 'myforms',
+    path: 'myforms'
+    waitOn: ->
+      [
+        Meteor.subscribe('directivoForms', Meteor.userId()),
+        Meteor.subscribe('docenteForms', Meteor.userId())
+      ]
 
   @route 'forbidden',
 
@@ -258,6 +267,7 @@ Router.onBeforeAction filters.isAdmin,
     'provinciaNew', 'provinciaEdit', 'provinciaList',
     'distritoNew', 'distritoEdit', 'distritoList',
     'ieNew', 'ieEdit', 'ieList',
+    'docenteNew', 'docenteEdit', 'docenteList',
     'dominioNew', 'dominioEdit', 'dominioList',
     'aspectoNew', 'aspectoEdit', 'aspectoList',
     'indicadorNew', 'indicadorEdit', 'indicadorList',
@@ -269,6 +279,7 @@ Router.onBeforeAction filters.isLoggedIn,
     'provinciaNew', 'provinciaEdit', 'provinciaList',
     'distritoNew', 'distritoEdit', 'distritoList',
     'ieNew', 'ieEdit', 'ieList',
+    'docenteNew', 'docenteEdit', 'docenteList',
     'dominioNew', 'dominioEdit', 'dominioList',
     'aspectoNew', 'aspectoEdit', 'aspectoList',
     'indicadorNew', 'indicadorEdit', 'indicadorList',

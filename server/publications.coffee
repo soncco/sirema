@@ -7,8 +7,11 @@ Meteor.publish 'region',  (id) ->
 Meteor.publish 'provincias', ->
   Provincias.find {}
 
+Meteor.publish 'provinciasRegion', (id) ->
+  Regiones.find {regionId: id}
+
 Meteor.publish 'provincia', (id) ->
-  id && Provincias.find id
+  id and Provincias.find id
 
 Meteor.publish 'distritos', ->
   Distritos.find {}
@@ -23,7 +26,7 @@ Meteor.publish 'ie', (id) ->
   id && Ies.find id
 
 Meteor.publish 'docentes', ->
-  Docentes.find {}
+  Docentes.find {}, {limit: 2000}
 
 Meteor.publish 'docente', (id) ->
   id && Docentes.find id
@@ -58,3 +61,9 @@ Meteor.publish 'usuarios', ->
 Meteor.publish 'currentUser', ->
   user = Meteor.users.find {_id: this.userId}
   user
+
+Meteor.publish 'directivoForms', (uid) ->
+  FormDirectivos.find {usuario: uid}
+
+Meteor.publish 'docenteForms', (uid) ->
+  FormDocentes.find {usuario: uid}

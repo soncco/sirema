@@ -7,8 +7,9 @@
     "flash-messages": {},
     "iron-router-progress": {},
     "fast-render": {},
-    "jqGrid": {},
     "autocomplete": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "jquery-datatables": {},
+    "jquery-ui-bootstrap": {}
   }
 }

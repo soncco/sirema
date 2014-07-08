@@ -1,0 +1,10 @@
+<template name="ieListt">
+  {{> DataTable ies }}
+  {{> DataTable
+      id="reactive-query"
+      columns=rows.columns
+      subscription=rows.subscription
+      query=reactiveQuery
+      options=rows.options
+  }}
+</template>
